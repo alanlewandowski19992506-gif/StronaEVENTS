@@ -206,3 +206,4 @@
           </div>
         </div>
       </section>
+export default HomePage;
