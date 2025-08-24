@@ -1,3 +1,243 @@
+import React, { useState } from 'react';
+import { Camera, ArrowRight, Shield, Calendar, MapPin, Users, Star, Heart, Zap, Award, Sparkles } from 'lucide-react';
+import { Button } from '../ui/Button';
+import { EventCard } from '../events/EventCard';
+import { EventDetail } from '../events/EventDetail';
+import { Event } from '../../types';
+
+interface HomePageProps {
+  onNavigate: (page: string) => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute top-40 left-40 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <div className="mb-8">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-purple-400 to-pink-400 text-white rounded-full mb-8 shadow-2xl animate-pulse">
+              <Sparkles className="w-12 h-12" />
+            </div>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-indigo-400 bg-clip-text text-transparent">
+              Flow High
+            </span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-purple-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Odkryj świat niezapomnianych przygód i poznaj niesamowitych ludzi. 
+            Każdy event to nowa historia, każde spotkanie to nowa przyjaźń.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button
+              size="lg"
+              onClick={() => onNavigate('events')}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-400 hover:to-pink-400 font-semibold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+            >
+              Odkryj Eventy
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button
+              size="lg"
+              onClick={() => onNavigate('register')}
+              className="bg-transparent border-2 border-purple-300 text-purple-200 hover:bg-purple-300 hover:text-purple-900 font-semibold px-8 py-4 text-lg backdrop-blur-sm"
+            >
+              Dołącz do Nas
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">500+</div>
+              <div className="text-purple-300 text-sm md:text-base">Eventów</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">10K+</div>
+              <div className="text-purple-300 text-sm md:text-base">Uczestników</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
+              <div className="text-purple-300 text-sm md:text-base">Miast</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">4.9</div>
+              <div className="text-purple-300 text-sm md:text-base">Ocena</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-purple-300 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-purple-300 rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Dlaczego <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Flow High</span>?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Jesteśmy więcej niż platformą eventową - jesteśmy społecznością, która łączy ludzi przez wspólne pasje
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="group p-8 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl hover:shadow-xl transition-all duration-300 border border-purple-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Różnorodne Eventy</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Od silent disco po spływy kajakowe - znajdź event idealny dla siebie. Każdy weekend to nowa przygoda!
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl hover:shadow-xl transition-all duration-300 border border-pink-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Wspaniała Społeczność</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Poznaj ludzi o podobnych zainteresowaniach. Nasze eventy to miejsce, gdzie rodzą się prawdziwe przyjaźnie.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl hover:shadow-xl transition-all duration-300 border border-indigo-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <MapPin className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Cała Polska</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Organizujemy eventy w ponad 50 miastach w Polsce. Bez względu na to gdzie jesteś, znajdziesz coś dla siebie.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl hover:shadow-xl transition-all duration-300 border border-green-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Star className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Najwyższa Jakość</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Każdy event jest starannie zaplanowany i przeprowadzony. Dbamy o każdy detal, abyś miał niezapomniane wrażenia.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl hover:shadow-xl transition-all duration-300 border border-yellow-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Zap className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Łatwa Rezerwacja</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Zarezerwuj miejsce w kilka kliknięć. Nasza platforma jest intuicyjna i przyjazna użytkownikowi.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl hover:shadow-xl transition-all duration-300 border border-red-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Heart className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Pasja w Każdym Detalu</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Robimy to z miłości do ludzi i przygód. Każdy event to kawałek naszego serca, który dzielimy z Tobą.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Award className="w-16 h-16 mx-auto mb-6 text-purple-600" />
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Co Mówią o Nas Uczestnicy
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Przeczytaj opinie tysięcy zadowolonych uczestników naszych eventów
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  A
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-900">Anna K.</h4>
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-600 italic leading-relaxed">
+                "Silent disco w Krakowie było niesamowite! Poznałam wspaniałych ludzi i bawiłam się jak nigdy wcześniej. Już nie mogę doczekać się kolejnego eventu!"
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  M
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-900">Michał P.</h4>
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-600 italic leading-relaxed">
+                "Spływ kajakowy był przygodą życia! Organizacja na najwyższym poziomie, a atmosfera niepowtarzalna. Polecam każdemu!"
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  K
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-900">Kasia W.</h4>
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-600 italic leading-relaxed">
+                "Flow High to więcej niż eventy - to społeczność! Dzięki nim poznałam swoich najlepszych przyjaciół. Każdy event to nowa przygoda!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 {/* Gallery Section */}
       <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -206,4 +446,18 @@
           </div>
         </div>
       </section>
-export default HomePage;
+
+      {/* Event Detail Modal */}
+      {selectedEvent && (
+        <EventDetail
+          event={selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+          onBook={() => {
+            // Handle booking logic
+            console.log('Booking event:', selectedEvent.title);
+          }}
+        />
+      )}
+    </div>
+  );
+};
