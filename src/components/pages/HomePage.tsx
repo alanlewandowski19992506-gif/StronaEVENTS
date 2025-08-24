@@ -238,6 +238,112 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Users className="w-16 h-16 mx-auto mb-6 text-purple-600" />
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Nasza Ekipa
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Poznaj ludzi, którzy tworzą magię Flow High i dbają o każdy detal Waszych przygód
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Kamil */}
+            <div className="group text-center">
+              <div className="relative mb-6">
+                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  K
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Kamil</h3>
+              <p className="text-purple-600 font-semibold mb-3">Założyciel & CEO</p>
+              <p className="text-gray-600 leading-relaxed">
+                Wizjoner Flow High, który zamienia marzenia o niezapomnianych eventach w rzeczywistość. Pasjonat przygód i budowania społeczności.
+              </p>
+            </div>
+
+            {/* Adrian */}
+            <div className="group text-center">
+              <div className="relative mb-6">
+                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  A
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Adrian</h3>
+              <p className="text-blue-600 font-semibold mb-3">Head of Operations</p>
+              <p className="text-gray-600 leading-relaxed">
+                Mistrz logistyki i organizacji. Dzięki niemu każdy event przebiega bez zakłóceń, a uczestnicy mogą skupić się na zabawie.
+              </p>
+            </div>
+
+            {/* Filip */}
+            <div className="group text-center">
+              <div className="relative mb-6">
+                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  F
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Filip</h3>
+              <p className="text-green-600 font-semibold mb-3">Creative Director</p>
+              <p className="text-gray-600 leading-relaxed">
+                Kreatywny umysł zespołu, który wymyśla najbardziej innowacyjne i ekscytujące koncepty eventów. Artysta w duszy.
+              </p>
+            </div>
+
+            {/* Paweł */}
+            <div className="group text-center">
+              <div className="relative mb-6">
+                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  P
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Paweł</h3>
+              <p className="text-orange-600 font-semibold mb-3">Community Manager</p>
+              <p className="text-gray-600 leading-relaxed">
+                Serce społeczności Flow High. Buduje relacje z uczestnikami i dba o to, żeby każdy czuł się częścią naszej rodziny.
+              </p>
+            </div>
+          </div>
+
+          {/* Team Values */}
+          <div className="mt-16 text-center">
+            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Nasze Wartości</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="flex items-center justify-center space-x-3">
+                  <Heart className="w-6 h-6 text-red-500" />
+                  <span className="font-semibold text-gray-800">Pasja</span>
+                </div>
+                <div className="flex items-center justify-center space-x-3">
+                  <Users className="w-6 h-6 text-blue-500" />
+                  <span className="font-semibold text-gray-800">Społeczność</span>
+                </div>
+                <div className="flex items-center justify-center space-x-3">
+                  <Sparkles className="w-6 h-6 text-purple-500" />
+                  <span className="font-semibold text-gray-800">Innowacja</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 {/* Gallery Section */}
       <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
